@@ -8,7 +8,13 @@ import { Details } from './detail'
 export const Home = () => {
   return (
     <SectionContainer>
-      <Box display={'flex'} flexDirection={'row'}>
+      <Box
+        display={'flex'}
+        flexDirection={'row'}
+        paddingBlock={'20px'}
+        overflow={'hidden'}
+        height={'100vh'}
+      >
         <List />
         <Chats />
         <Details />

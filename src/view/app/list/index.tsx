@@ -9,6 +9,8 @@ export const List = () => {
       flex={1}
       display={'flex'}
       flexDirection={'column'}
+      backgroundColor={'background.100'}
+      borderRadius={'20px'}
     >
       <UserInfo />
       <ChatList />

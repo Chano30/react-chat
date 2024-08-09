@@ -2,143 +2,72 @@ import { Box, Img, Input, InputGroup, InputLeftElement, Text } from '@chakra-ui/
 import { FaSearch } from "react-icons/fa";
 
 export const ChatList = () => {
-  
+
 
   return (
-    <Box 
-      height={window.innerHeight + 'px'}
-      overflow={'scroll'}
-      backgroundColor={'red'}
-
+    <Box
+    display={'flex'}
+    flexDirection={'column'}
     >
-      <InputGroup>
-        <InputLeftElement pointerEvents='none'>
-          <FaSearch color='gray.300'/>
+      <InputGroup
+        paddingInline={'10px'}
+      >
+        <InputLeftElement pointerEvents='none'
+          paddingLeft={'10px'}
+        >
+          <FaSearch color='#a5a5a5' />
         </InputLeftElement>
-        <Input 
+        <Input
+          color={'gray.100'}
           placeholder='Search'
+          _placeholder={{color: 'inherit'}}
           borderRadius={'15px'}
+          borderColor={'gray.100'}
         />
       </InputGroup>
-      <Box 
+      <Box
+        height="calc(100vh - 180px)"
         display={'flex'}
-        alignItems={'center'}
-        gap={'20px'}
-        padding={'20px'}
-        borderBottom={'1px solid'}
+        flexDirection={'column'}
+        overflowY={'scroll'}
+        sx={
+          {
+            '::-webkit-scrollbar': {
+              display: 'none'
+            }
+          }
+        }
       >
-        <Img 
-          src='https://i.pravatar.cc/50?img=2'
-        />
-        <Box>
-          <Text>Jane Doe</Text>
-          <Text>Hello !</Text>
-        </Box>
-      </Box>
-      <Box 
-        display={'flex'}
-        alignItems={'center'}
-        gap={'20px'}
-        padding={'20px'}
-        borderBottom={'1px solid'}
-      >
-        <Img 
-          src='https://i.pravatar.cc/50?img=2'
-        />
-        <Box>
-          <Text>Jane Doe</Text>
-          <Text>Hello !</Text>
-        </Box>
-      </Box>
-      <Box 
-        display={'flex'}
-        alignItems={'center'}
-        gap={'20px'}
-        padding={'20px'}
-        borderBottom={'1px solid'}
-      >
-        <Img 
-          src='https://i.pravatar.cc/50?img=2'
-        />
-        <Box>
-          <Text>Jane Doe</Text>
-          <Text>Hello !</Text>
-        </Box>
-      </Box>
-      <Box 
-        display={'flex'}
-        alignItems={'center'}
-        gap={'20px'}
-        padding={'20px'}
-        borderBottom={'1px solid'}
-      >
-        <Img 
-          src='https://i.pravatar.cc/50?img=2'
-        />
-        <Box>
-          <Text>Jane Doe</Text>
-          <Text>Hello !</Text>
-        </Box>
-      </Box>
-      <Box 
-        display={'flex'}
-        alignItems={'center'}
-        gap={'20px'}
-        padding={'20px'}
-        borderBottom={'1px solid'}
-      >
-        <Img 
-          src='https://i.pravatar.cc/50?img=2'
-        />
-        <Box>
-          <Text>Jane Doe</Text>
-          <Text>Hello !</Text>
-        </Box>
-      </Box>
-      <Box 
-        display={'flex'}
-        alignItems={'center'}
-        gap={'20px'}
-        padding={'20px'}
-        borderBottom={'1px solid'}
-      >
-        <Img 
-          src='https://i.pravatar.cc/50?img=2'
-        />
-        <Box>
-          <Text>Jane Doe</Text>
-          <Text>Hello !</Text>
-        </Box>
-      </Box>
-      <Box 
-        display={'flex'}
-        alignItems={'center'}
-        gap={'20px'}
-        padding={'20px'}
-        borderBottom={'1px solid'}
-      >
-        <Img 
-          src='https://i.pravatar.cc/50?img=2'
-        />
-        <Box>
-          <Text>Jane Doe</Text>
-          <Text>Hello !</Text>
-        </Box>
-      </Box>
-      <Box 
-        display={'flex'}
-        alignItems={'center'}
-        gap={'20px'}
-        padding={'20px'}
-        borderBottom={'1px solid'}
-      >
-        <Img 
-          src='https://i.pravatar.cc/50?img=2'
-        />
-        <Box>
-          <Text>Jane Doe</Text>
-          <Text>Hello !</Text>
-        </Box>
+        {[...Array(20)].map((_, index) => (
+          <Box
+            key={index}
+            display={'flex'}
+            alignItems={'center'}
+            gap={'20px'}
+            padding={'20px'}
+            borderBottom={'1px solid gray'}
+          >
+            <Img
+              src='https://i.pravatar.cc/50?img=2'
+              alt="Avatar"
+              borderRadius={'50%'}
+              objectFit={'cover'}
+            />
+            <Box
+              display={'flex'}
+              flexDirection={'column'}
+              gap={'20px'}
+            >
+              <Text
+                fontWeight={500}
+              >Jane Doe</Text>
+              <Text
+                fontSize={'14px'}
+                fontWeight={300}
+              >Hello !</Text>
+            </Box>
+          </Box>
+        ))}
       </Box>
     </Box>
   )

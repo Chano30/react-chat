@@ -16,11 +16,17 @@ const theme = extendTheme({
       200: "#301D0066",
       300: "#301D00AA",
       400: "#301D00FF",
-      500: "#301D00"
+      500: "#E4E6EB" // edited
+    },
+    gray:{
+      100: '#a5a5a5'
+    },
+    blue: {
+      100: '#279DED'
     },
     background: {
-      100: "#FFFDF588",
-      200: "#FFFDF566",
+      100: "#222222", // edited
+      200: "#1A1A1A", // edited
       300: "#FFFDF5AA",
       400: "#FFFDF5FF",
       500: "#FFFDF5"
