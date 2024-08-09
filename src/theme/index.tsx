@@ -19,10 +19,13 @@ const theme = extendTheme({
       500: "#E4E6EB" // edited
     },
     gray:{
-      100: '#a5a5a5'
+      100: '#a5a5a5',
+      200: '#414141',
+      300: '#4C4C4C'
     },
     blue: {
-      100: '#279DED'
+      100: '#279DED',
+      200: '#0E92EB'
     },
     background: {
       100: "#222222", // edited

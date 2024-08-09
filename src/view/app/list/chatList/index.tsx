@@ -45,7 +45,8 @@ export const ChatList = () => {
             alignItems={'center'}
             gap={'20px'}
             padding={'20px'}
-            borderBottom={'1px solid gray'}
+            _hover={{ bg: 'gray.200' }}
+            borderRadius={'20px'}
           >
             <Img
               src='https://i.pravatar.cc/50?img=2'
