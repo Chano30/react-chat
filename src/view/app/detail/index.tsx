@@ -1,4 +1,4 @@
-import { Box, Img, Text } from '@chakra-ui/react'
+import { Box, Button, Img, Text } from '@chakra-ui/react'
 import { FaAngleRight,FaDownload  } from "react-icons/fa6";
 
 export const Details = () => {
@@ -88,6 +88,16 @@ export const Details = () => {
           <Text>Shared files</Text>
           <FaAngleRight />
         </Box>
+        <Button
+
+        >
+          Block User
+        </Button>
+        <Button
+
+        >
+          Log out
+        </Button>
       </Box>
     </Box>
   )

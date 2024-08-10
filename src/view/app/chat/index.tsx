@@ -8,11 +8,16 @@ import {
 } from '@chakra-ui/react'
 import { FaVideo, FaPhone, FaInfo, FaImage, FaMicrophone, FaCamera, FaFaceSmile, FaThumbsUp } from "react-icons/fa6";
 import EmojiPicker from 'emoji-picker-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const Chats = () => {
   const [open, setOpen] = useState<boolean>(false)
   const [text, setText] = useState<string>('')
+  const endMessage = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    endMessage.current?.scrollIntoView()
+  }, [])
 
   const handleEmoji = (e: any) => {
     setText(prev => prev + e.emoji)
@@ -93,10 +98,12 @@ export const Chats = () => {
             <>
               <MessageFrom />
               <MessageFor />
+              <Box ref={endMessage}></Box>
             </>
           ))
         }
       </Box>
+      
       {/* End of Middle Container */}
       {/* Bottom Container */}
       <Box
