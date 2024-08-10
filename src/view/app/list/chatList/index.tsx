@@ -44,9 +44,9 @@ export const ChatList = () => {
             display={'flex'}
             alignItems={'center'}
             gap={'20px'}
-            padding={'20px'}
+            padding={'10px 20px'}
             _hover={{ bg: 'gray.200' }}
-            borderRadius={'20px'}
+            borderRadius={'13px'}
           >
             <Img
               src='https://i.pravatar.cc/50?img=2'
@@ -57,7 +57,7 @@ export const ChatList = () => {
             <Box
               display={'flex'}
               flexDirection={'column'}
-              gap={'20px'}
+              gap={'5px'}
             >
               <Text
                 fontWeight={500}

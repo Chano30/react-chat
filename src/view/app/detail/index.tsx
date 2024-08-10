@@ -1,12 +1,14 @@
 import { Box, Img, Text } from '@chakra-ui/react'
-import { FaAngleRight } from "react-icons/fa6";
+import { FaAngleRight,FaDownload  } from "react-icons/fa6";
 
 export const Details = () => {
   return (
-    <Box 
+    <Box
       flex={1}
       backgroundColor={'background.100'}
       borderRadius={'20px'}
+      overflowY={'scroll'}
+      padding={'20px'}
     >
       <Box
         display={'flex'}
@@ -15,7 +17,7 @@ export const Details = () => {
         gap={'20px'}
         padding={'30px 20px'}
       >
-        <Img 
+        <Img
           src='https://i.pravatar.cc/100?img=2'
           borderRadius={'50%'}
           objectFit={'cover'}
@@ -23,23 +25,66 @@ export const Details = () => {
         <Text>Jane Doe</Text>
         <Text>Active now</Text>
       </Box>
-      <Box>
-        <Box>
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
+        gap={'20px'}
+      >
+        <Box 
+          display={'flex'}
+          justifyContent={'space-between'}
+          alignItems={'center'}
+        >
           <Text>Chat Settings</Text>
-          <FaAngleRight />
+          <FaAngleRight cursor={'pointer'}/>
         </Box>
-        <Box>
+        <Box 
+          display={'flex'}
+          justifyContent={'space-between'}
+          alignItems={'center'}
+        >
           <Text>Privacy & Help</Text>
-          <FaAngleRight />
+          <FaAngleRight cursor={'pointer'}/>
         </Box>
-        <Box>
+        <Box 
+          display={'flex'}
+          justifyContent={'space-between'}
+          alignItems={'center'}
+        >
           <Text>Shared photos</Text>
-          <FaAngleRight />
-          <Box>
-            
-          </Box>
+          <FaAngleRight cursor={'pointer'}/>
         </Box>
         <Box>
+          {[...Array(4)].map((_, index) => (
+            <Box 
+            display={'flex'}
+            justifyContent={'space-between'}
+            alignItems={'center'}
+            marginBottom={'10px'}
+            >
+              <Box
+              display={'flex'}
+              alignItems={'center'}
+              gap={'10px'}
+              >
+                <Img
+                  src={`https://i.pravatar.cc/40?img=${index}`}
+                />
+                <Text
+                  fontSize={'14px'}
+                  color={'lightgray'}
+                  fontWeight={300}
+                >photo_2024.{index}.png</Text>
+              </Box>
+                <FaDownload />
+            </Box>
+          ))}
+        </Box>
+        <Box
+        display={'flex'}
+        justifyContent={'space-between'}
+        alignItems={'center'}
+        >
           <Text>Shared files</Text>
           <FaAngleRight />
         </Box>
