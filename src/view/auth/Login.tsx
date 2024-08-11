@@ -1,63 +1,139 @@
-import { Box, Button, Input, Text } from '@chakra-ui/react'
+import { Box, Button, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react'
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { FaRegEye, FaRegEyeSlash  } from "react-icons/fa6";
 
 export const Login = () => {
+  const [show, setShow] = useState<Boolean>(false)
+  const handleClick = () => setShow(!show)
+  
   return (
     <Box
       backgroundColor={'#312938'}
-      width={'30vw'}
+      maxW={'500px'}
       height={'60vh'}
-      display={'flex'}
-      flexDirection={'column'}
-      alignItems={'center'}
       padding={'20px 10px'}
-      gap={'20px'}
+      flex={1}
     >
-      <Text
-        fontSize={'18px'}
-        fontWeight={500}
-      >Log in with</Text>
       <Box
         display={'flex'}
-        gap={'10px'}
+        flexDirection={'column'}
+        alignItems={'center'}
+        gap={'20px'}
+        flex={1}
       >
-        <Button
-          backgroundColor={'#342D3C'}
-          color={'primary.500'}
+        <Text
+          fontSize={'18px'}
+          fontWeight={500}
+        >Log in with</Text>
+        <Box
           display={'flex'}
+          gap={'10px'}
+          width={'80%'}
+        >
+          <Button
+            backgroundColor={'#342D3C'}
+            color={'primary.500'}
+            display={'flex'}
+            alignItems={'center'}
+            gap={'10px'}
+            paddingInline={'40px'}
+            paddingBlock={'30px'}
+            flex={2}
+          ><FcGoogle size={20} /> Google</Button>
+          <Button
+            backgroundColor={'#342D3C'}
+            color={'primary.500'}
+            display={'flex'}
+            alignItems={'center'}
+            gap={'10px'}
+            paddingInline={'40px'}
+            paddingBlock={'30px'}
+            flex={2}
+          ><FaFacebookF size={20} color='#279DED' /> Facebook</Button>
+        </Box>
+        <Text>Or</Text>
+        <Box
+          width={'80%'}
+          display={'flex'}
+          flexDirection={'column'}
           alignItems={'center'}
           gap={'10px'}
-          paddingInline={'40px'}
-        ><FcGoogle size={20} /> Google</Button>
-        <Button
-          backgroundColor={'#342D3C'}
-          color={'primary.500'}
-          display={'flex'}
-          alignItems={'center'}
-          gap={'10px'}
-          paddingInline={'40px'}
-        ><FaFacebookF size={20} color='#279DED' /> Facebook</Button>
+        >
+          <Box
+            width={'100%'}
+          >
+            <Text>Email</Text>
+            <Input
+              paddingBlock={'30px'}
+              borderColor={'transparent'}
+              backgroundColor={'#342D3C'}
+              placeholder='Enter email address'
+            />
+          </Box>
+          <Box
+            width={'100%'}
+          >
+            <Text>Password</Text>
+            <InputGroup
+            >
+              <Input
+                type={show ? 'text' : 'password'}
+                paddingBlock={'30px'}
+                borderColor={'transparent'}
+                backgroundColor={'#342D3C'}
+                placeholder='Enter your password'
+              />
+              <InputRightElement 
+                height={'100%'}
+              >
+                <Button 
+                  size='sm' 
+                  onClick={handleClick}
+                  colorScheme='transparent'
+                >
+                  {show ? <FaRegEye size={24}/> : <FaRegEyeSlash size={24}/>}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+          </Box>
+        </Box>
+        <Box
+          width={'80%'}
+        >
+          <Button
+            width={'100%'}
+            borderRadius={'4px'}
+            paddingBlock={'30px'}
+            backgroundColor={'#8E80F5'}
+            _hover={{
+              opacity: '0.5'
+            }}
+          >
+            Log in
+          </Button>
+        </Box>
       </Box>
-      <Text>Or</Text>
-      <Box
+      <Text
+        display={'flex'}
+        gap={'5px'}
+        marginTop={'20px'}
+        justifyContent={'center'}
+        width={'100%'}
       >
-        <Box>
-          <Text>Email</Text>
-          <Input
-            placeholder='Enter email address'
-          />
-        </Box>
-        <Box>
-          <Text>Password</Text>
-          <Input
-            placeholder='Enter your password'
-          />
-        </Box>
-      </Box>
-      <Button>
-        Log in
-      </Button>
+        Don't have an account ?
+        <Link
+          to={'/register'}
+        >
+          <Text
+            color='#8E80F5'
+          >
+            Sign up
+          </Text>
+        </Link>
+      </Text>
     </Box>
   )
 }
