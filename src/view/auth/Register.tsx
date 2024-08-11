@@ -1,18 +1,32 @@
-import { Box, Button, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react'
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebookF } from "react-icons/fa";
+import { Box, Button, Icon, Img, Input, InputGroup, InputLeftElement, InputRightElement, Text } from '@chakra-ui/react'
+import { FiFile } from "react-icons/fi";
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { FaRegEye, FaRegEyeSlash  } from "react-icons/fa6";
+import { useRef, useState } from 'react';
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
 export const Register = () => {
-  const [show, setShow] = useState<Boolean>(false)
+  const [show, setShow] = useState<boolean>(false)
+  const avatarRef = useRef<HTMLInputElement | null>(null)
+  const [avatar, setAvatar] = useState<{ file: File | null, url: string }>({
+    file: null,
+    url: ''
+  })
   const handleClick = () => setShow(!show)
+  const handleAvatar = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]; // Optional chaining to safely access files
+    if (file) {
+      setAvatar({
+        file,
+        url: URL.createObjectURL(file)
+      });
+    }
+  }
 
   return (
     <Box
       backgroundColor={'#312938'}
       maxW={'500px'}
+      height={'auto'}
       padding={'20px 10px'}
       flex={1}
     >
@@ -26,34 +40,33 @@ export const Register = () => {
         <Text
           fontSize={'18px'}
           fontWeight={500}
-        >Sign up with</Text>
+        >Create an Account</Text>
         <Box
           display={'flex'}
-          gap={'10px'}
-          width={'80%'}
+          flexDirection={'column'}
+          alignItems={'center'}
+          justifyContent={'center'}
+          gap={'5px'}
         >
-          <Button
-            backgroundColor={'#342D3C'}
-            color={'primary.500'}
-            display={'flex'}
-            alignItems={'center'}
-            gap={'10px'}
-            paddingInline={'40px'}
-            paddingBlock={'30px'}
-            flex={2}
-          ><FcGoogle size={20} /> Google</Button>
-          <Button
-            backgroundColor={'#342D3C'}
-            color={'primary.500'}
-            display={'flex'}
-            alignItems={'center'}
-            gap={'10px'}
-            paddingInline={'40px'}
-            paddingBlock={'30px'}
-            flex={2}
-          ><FaFacebookF size={20} color='#279DED' /> Facebook</Button>
+          <Img
+            src={avatar.url || 'https://i.pravatar.cc/100?img=3'}
+            width={'60px'}
+            height={'60px'}
+            borderRadius={'50%'}
+            objectFit={'cover'}
+          />
+          <Input
+            type='file'
+            display={'none'}
+            onChange={handleAvatar}
+            ref={avatarRef}
+          />
+          <Text
+            cursor={'pointer'}
+            children={<Icon as={FiFile} />}
+            onClick={() => avatarRef.current?.click()}
+          />
         </Box>
-        <Text>Or</Text>
         <Box
           width={'80%'}
           display={'flex'}
@@ -76,13 +89,14 @@ export const Register = () => {
           <Box
             width={'100%'}
           >
-            <Text>Full name</Text>
+            <Text>Username</Text>
             <Input
-              type='name'
+              type='username'
+              autoComplete='disabled  '
               paddingBlock={'30px'}
               borderColor={'transparent'}
               backgroundColor={'#342D3C'}
-              placeholder='Enter Full name'
+              placeholder='Enter Username'
             />
           </Box>
           <Box
@@ -98,15 +112,15 @@ export const Register = () => {
                 backgroundColor={'#342D3C'}
                 placeholder='Enter your password'
               />
-              <InputRightElement 
+              <InputRightElement
                 height={'100%'}
               >
-                <Button 
-                  size='sm' 
+                <Button
+                  size='sm'
                   onClick={handleClick}
                   colorScheme='transparent'
                 >
-                  {show ? <FaRegEye size={24}/> : <FaRegEyeSlash size={24}/>}
+                  {show ? <FaRegEye size={24} /> : <FaRegEyeSlash size={24} />}
                 </Button>
               </InputRightElement>
             </InputGroup>

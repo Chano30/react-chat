@@ -13,7 +13,6 @@ export const Login = () => {
     <Box
       backgroundColor={'#312938'}
       maxW={'500px'}
-      height={'60vh'}
       padding={'20px 10px'}
       flex={1}
     >
@@ -27,34 +26,7 @@ export const Login = () => {
         <Text
           fontSize={'18px'}
           fontWeight={500}
-        >Log in with</Text>
-        <Box
-          display={'flex'}
-          gap={'10px'}
-          width={'80%'}
-        >
-          <Button
-            backgroundColor={'#342D3C'}
-            color={'primary.500'}
-            display={'flex'}
-            alignItems={'center'}
-            gap={'10px'}
-            paddingInline={'40px'}
-            paddingBlock={'30px'}
-            flex={2}
-          ><FcGoogle size={20} /> Google</Button>
-          <Button
-            backgroundColor={'#342D3C'}
-            color={'primary.500'}
-            display={'flex'}
-            alignItems={'center'}
-            gap={'10px'}
-            paddingInline={'40px'}
-            paddingBlock={'30px'}
-            flex={2}
-          ><FaFacebookF size={20} color='#279DED' /> Facebook</Button>
-        </Box>
-        <Text>Or</Text>
+        >Welcome back!</Text>
         <Box
           width={'80%'}
           display={'flex'}
