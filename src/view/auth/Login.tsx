@@ -1,12 +1,10 @@
 import { Box, Button, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react'
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebookF } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash  } from "react-icons/fa6";
 
 export const Login = () => {
-  const [show, setShow] = useState<Boolean>(false)
+  const [show, setShow] = useState<boolean>(false)
   const handleClick = () => setShow(!show)
   
   return (

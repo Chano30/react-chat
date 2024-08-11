@@ -1,4 +1,4 @@
-import { Box, Button, Icon, Img, Input, InputGroup, InputLeftElement, InputRightElement, Text } from '@chakra-ui/react'
+import { Box, Button, Icon, Img, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react'
 import { FiFile } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
